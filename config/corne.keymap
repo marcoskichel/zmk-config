@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
 
 / {
         conditional_layers {
@@ -65,13 +66,13 @@
                 adjust_layer {
 // -----------------------------------------------------------------------------------------
 // |     |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  _  | +pd |      |
-// | SHFT|  |  |  _  | C+A+DN |  |     |   |ALT1 |ALT2 |ALT3 |ALT4 |     | GUI+L|
-// | ALT |     |     |     |     |     |   |PREV |VOL- |VOL+ |NEXT |PLAY | CAPS |
+// | SHFT|  |  |  _  | C+A+DN | BTCLR | OUT |   |ALT1 |ALT2 |ALT3 |ALT4 |     | GUI+L|
+// | ALT | BT0 | BT1 | BT2 | BT3 | BT4 |   |PREV |VOL- |VOL+ |NEXT |PLAY | CAPS |
 //               | LWR | DEL | CTRL |   | ENT | BSPC | RSE |
                         bindings = <
-   &none     &kp EXCL &kp AT    &kp HASH         &kp DLLR &kp PRCNT   &kp CARET  &kp AMPS     &kp ASTRK    &kp UNDER  &kp KP_PLUS &none
-   &kp LSHFT &kp PIPE &kp UNDER &kp LC(LA(DOWN)) &none    &none       &kp LA(N1) &kp LA(N2)   &kp LA(N3)   &kp LA(N4) &none       &kp LG(L)
-   &kp LALT  &none    &none     &none            &none    &none       &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT &kp C_PP    &kp CAPS
+   &none     &kp EXCL     &kp AT       &kp HASH         &kp DLLR     &kp PRCNT      &kp CARET  &kp AMPS     &kp ASTRK    &kp UNDER  &kp KP_PLUS &none
+   &kp LSHFT &kp PIPE     &kp UNDER    &kp LC(LA(DOWN)) &bt BT_CLR   &out OUT_TOG   &kp LA(N1) &kp LA(N2)   &kp LA(N3)   &kp LA(N4) &none       &kp LG(L)
+   &kp LALT  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2     &bt BT_SEL 3 &bt BT_SEL 4   &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT &kp C_PP    &kp CAPS
                       &mo 1 &kp DEL &kp LCTRL   &kp ENTER &kp BSPC &mo 2
                         >;
                 };
